@@ -1,0 +1,25 @@
+npm 명령어들
+
+npm cli documentation 을 보면서 업데이트 시켜라
+
+npm outdated - 어떤 패키지에 기능 변화가 생겼는지 알 수 있음
+
+npm uninstall 패키지명
+
+npm search 패키지명
+
+npm info 패키지명
+
+npm i express@next
+
+npm login
+
+npm add user
+
+npm version major
+
+npm deprecate  - 패키지를 설치할 때 경고 메시지를 띄우게 함 (오류가 있는 패키지에 적용)
+
+npm publish - 자신이 만든 패키지를 배포
+
+npm unpublish - 자신이 만든 패키지를 배포 중단 (배포 후 72 시간 내에만 가능)

@@ -1,0 +1,34 @@
+npm 이란?
+
+Node Package Manager
+다른 사람들이 만든 소스 코드들을 모아둔 저장소
+
+1. npm init 
+
+노드 프로젝트를 할때는 package.json 부터 하고 시작한다.
+package.json
+으로 만들 수 있다 
+
+2. npm i express
+express 설치!
+
+3. npm i cookie-parser body-parser
+
+4. npm i nodemon -D 
+
+dev dependency: 개발 할때만 쓰이는 패키지들 (-D 를 붙이게 되면)
+dependency: 실제로 배포할때 쓰이는 것들
+
+5. npm i -g rimraf
+
+명령어 처럼 쓸 수 있다
+rimraf 먼가를 지우는 명령어 
+
+rimraf node_modules
+
+global 설치하면 dependency 에 기록이 안되어서, npm i rimraf -D 이렇게 개발용으로만 설치한다.
+그리고 npx rimraf node_modules 를 해주면 삭제 기능을 사용할 수 있다.
+
+버전
+major.minor.patch
+1.1.1

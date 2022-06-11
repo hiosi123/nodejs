@@ -10,7 +10,8 @@ app.set('port', process.env.PORT || 3000);
 app.use((req,res, next) => {
     console.log('모든 요청에 실행하고 싶어요')
     //next('route') - 다음꺼를 실행시킨다.
-    next(); 
+    // next(); 
+    req.data = '신홍석 비번'
 }, (req, res, next) => {
     try{
         console.log(asdads)
@@ -22,7 +23,7 @@ app.use((req,res, next) => {
 app.get('/', (req, res) => {
     //res.writeHead(200, {'Content-Type': 'application/json'});
     //res.end(JSON.stringify({hello: 'zerocho'}))
-
+    req.data
     //위에 두줄을 
     //res.json({hello: 'zerocho'})
 

@@ -8,13 +8,13 @@ const { renderString } = require('nunjucks')
 const router = express.Router();
 
 router.post('/join', isNotLoggedIn, async(req, res, next) => {
-  const { email, nick, passowrd } = req.body
+  const { email, nick, password } = req.body
   try {
     const exUser = await User.findOne({where:{email}});
     if(exUser) {
       return res.redirect('/join?error=exist')
     }
-    const hash = await bcrypt.hash(passowrd, 12);
+    const hash = await bcrypt.hash(password, 12);
     await User.create({
       email,
       nick,
@@ -41,7 +41,7 @@ router.post('/login', isNotLoggedIn, (req, res, next) => {
         console.error(loginError)
         return next(loginError)
       }
-      return res.redirect('/')
+    return res.redirect('/')
     })
   })(req, res, next) // 미들웨어 내의 미들웨어에는 (req, res, next)를 붙입니다.
 })
@@ -49,6 +49,14 @@ router.post('/login', isNotLoggedIn, (req, res, next) => {
 router.get('/logout', isLoggedIn, (req, res) => {
   req.logout();
   req.session.destroy();
+  res.redirect('/')
+})
+
+router.get('/kakao', passport.authenticate('kakao'))
+
+router.get('/kakao/callback', passport.authenticate('kakao',{
+  failureRedirect: '/'
+}), (req, res) => {
   res.redirect('/')
 })
 
